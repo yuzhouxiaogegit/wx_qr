@@ -1,0 +1,26 @@
+<view class="container-box">
+    <view class="img-box">
+        <image bindtap="previewImg" mode="scaleToFill" wx:if="{{QRcode == ''}}" src="{{imagePath}}"></image>
+        <view class='value_qr' wx:if="{{QRcode != ''}}" catchtap='Copy_to_clipboard' data-text="{{QRcode}}"><text selectable="true">{{QRcode}}</text>
+            <view class='value_qr_cipy'>点击复制当前内容</view>
+        </view>
+    </view>
+    <form bindsubmit="formSubmit">
+        <view class="input-row">
+            <label>网址：</label>
+            <input name='url' value='{{bindfocus_value}}'  type="text" maxlength="255" bindfocus="bindfocus_value" placeholder="{{placeholder_data}}" placeholder-style="font-size:30rpx;"/>
+        </view>
+        <button formType="submit" class="mybtn" >生成二维码</button>
+        <view class='qr_box' catchtap='rq_jiema' id="1">扫一扫解码</view>
+   
+    </form>
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+  <canvas  hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas"/>
+</view>
+
+
+
+
+
